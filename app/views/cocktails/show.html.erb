@@ -1,0 +1,26 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Let's enjoy a <strong><%= @cocktail.name %></strong> together !</h1>
+  </div>
+</div>
+
+<div class="container mt-2 white px-3 py-2 rounded-lg" style="background: white;">
+  <div class="d-flex">
+    <h3 class="flex-grow-1">Recipe</h3> <span><%= link_to "New dose" , new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %></span>
+  </div>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li>
+        <%= dose.description %>
+        - <%= Ingredient.find(dose.ingredient_id).name %>
+        <%= link_to dose_path, method: :delete, data: {confirm: 'Are you sure ?'} do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      </li>
+
+    <% end %>
+  </ul>
+
+</div>
+
+
