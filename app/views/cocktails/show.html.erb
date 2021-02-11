@@ -6,7 +6,7 @@
 
 <div class="container mt-2 white px-3 py-2 rounded-lg" style="background: white;">
   <div class="d-flex">
-    <h3 class="flex-grow-1">Recipe</h3> <span><%= link_to "New dose" , new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %></span>
+    <h3 class="flex-grow-1">Recipe</h3> <span><%= link_to "New dose" , new_cocktail_dose_path(@cocktail), class: 'btn btn-ghost' %></span>
   </div>
   <ul>
     <% @cocktail.doses.each do |dose| %>
