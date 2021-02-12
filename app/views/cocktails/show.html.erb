@@ -1,9 +1,15 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+
+
+
+<% if @cocktail.photo.attached? %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill %>');">
+<% else %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<% end %>
   <div class="container">
-    <h1>Let's enjoy a <strong><%= @cocktail.name %></strong> together !</h1>
+    <h1>Let's enjoy a glass of <strong><%= @cocktail.name %></strong> together !</h1>
   </div>
 </div>
-
 <div class="container mt-2 white px-3 py-2 rounded-lg" style="background: white;">
   <div class="d-flex">
     <h3 class="flex-grow-1">Recipe</h3> <span><%= link_to "New dose" , new_cocktail_dose_path(@cocktail), class: 'btn btn-ghost' %></span>
