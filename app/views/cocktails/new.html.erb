@@ -3,6 +3,7 @@
   <%= f.input :name,
         label: false,
         placeholder: "Cocktail name" %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Create new cocktail", class: "btn btn-primary" %>
 <% end %>
 
